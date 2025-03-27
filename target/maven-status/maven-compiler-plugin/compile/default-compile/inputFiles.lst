@@ -1,0 +1,12 @@
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\config\JwtAuthFilter.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\config\JwtTokenUtil.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\controller\ApiController.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\model\LoginRequest.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\service\UserServiceImpl.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\config\SecurityConfig.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\model\User.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\controller\AuthController.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\service\CustomUserDetailsService.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\AiHelperBackApplication.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\service\UserService.java
+C:\workspace2\ai-helper\ai-helper-back\src\main\java\com\aihelper\model\LoginResponse.java
