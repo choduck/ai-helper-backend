@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = "*")
@@ -39,5 +41,16 @@ public class AuthController {
     public ResponseEntity<?> check() {
         logger.info("인증 API 상태 확인");
         return ResponseEntity.ok("Authentication API is working");
+    }
+    
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout() {
+        logger.info("로그아웃 요청 처리");
+        // 클라이언트 측에서 토큰 삭제가 주요 로그아웃 메커니즘이지만,
+        // 향후 토큰 블랙리스트 등 서버 측 로그아웃 로직을 여기에 구현할 수 있습니다.
+        return ResponseEntity.ok(Map.of(
+            "message", "로그아웃 성공",
+            "status", "success"
+        ));
     }
 } 
