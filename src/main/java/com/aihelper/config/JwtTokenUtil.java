@@ -24,11 +24,11 @@ public class JwtTokenUtil {
     @Value("${jwt.expiration}")
     private Long expiration;
     
-    // HS512 알고리즘에 적합한 보안 키 생성
+    // 설정 파일에서 제공된 비밀 키를 사용하여 서명 키 생성
     private SecretKey getSigningKey() {
-        // RFC 7518 권장사항에 따라 Keys.secretKeyFor 메서드를 사용하여
-        // 알고리즘에 적합한 크기의 키 생성
-        return Keys.secretKeyFor(SignatureAlgorithm.HS512);
+        // HS256 알고리즘으로 변경하여 키 크기 문제 해결
+        byte[] keyBytes = secret.getBytes(StandardCharsets.UTF_8);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
     // 토큰에서 사용자 이름 추출
@@ -77,7 +77,7 @@ public class JwtTokenUtil {
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
-                .signWith(key, SignatureAlgorithm.HS512)
+                .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
 
