@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("loginRequest: " + loginRequest.getPassword());
         System.out.println("user: " + user.getUsername());
         System.out.println("loginRequest: " + loginRequest.getUsername());
+        
         if (user == null) {
             throw new Exception("사용자를 찾을 수 없습니다.");
         }
@@ -122,6 +123,11 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User updateUser(User user) {
+        // status가 null인 경우 기본값 설정
+        if (user.getStatus() == null) {
+            user.setStatus("ACTIVE");
+        }
+        
         userMapper.update(user);
         return userMapper.findById(user.getId());
     }
