@@ -3,7 +3,7 @@ package com.aihelper.model;
 import java.time.LocalDateTime;
 
 public class User {
-    private Long id;
+    private Long userId;
     private String username;
     private String password;
     private String email;
@@ -12,15 +12,23 @@ public class User {
     private String status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private LocalDateTime lastLogin;
+    private LocalDateTime lastLoginAt;
 
     // Getters and Setters
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     public Long getId() {
-        return id;
+        return userId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public String getUsername() {
@@ -87,18 +95,18 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
-    public LocalDateTime getLastLogin() {
-        return lastLogin;
+    public LocalDateTime getLastLoginAt() {
+        return lastLoginAt;
     }
 
-    public void setLastLogin(LocalDateTime lastLogin) {
-        this.lastLogin = lastLogin;
+    public void setLastLoginAt(LocalDateTime lastLoginAt) {
+        this.lastLoginAt = lastLoginAt;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id=" + userId +
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", fullname='" + fullname + '\'' +

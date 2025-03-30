@@ -27,6 +27,8 @@ public class AdminController {
 
     /**
      * 관리자 권한 체크 - 임시로 모든 요청 허용
+     * AdminController의 각 API 엔드포인트(/api/admin/*)가 호출될 때마다 실행되어 권한을 검사
+     * 현재는 getUsers()와 getUserById() 메서드에서 호출됨
      */
     private boolean isAdmin() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -136,7 +138,7 @@ public class AdminController {
         }
         
         // ID 설정
-        user.setId(id);
+        user.setUserId(id);
         
         try {
             User updatedUser = userService.updateUser(user);

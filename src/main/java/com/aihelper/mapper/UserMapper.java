@@ -34,13 +34,13 @@ public interface UserMapper {
     int update(User user);
     
     // 비밀번호 업데이트
-    int updatePassword(@Param("id") Long id, @Param("password") String password);
+    int updatePassword(@Param("userId") Long userId, @Param("password") String password);
     
     // 마지막 로그인 시간 업데이트
-    int updateLastLogin(@Param("id") Long id);
+    int updateLastLogin(@Param("userId") Long userId);
     
     // 사용자 삭제
-    int deleteById(@Param("id") Long id);
+    int deleteById(@Param("userId") Long userId);
     
     // 검색 쿼리
     List<User> search(@Param("query") String query, @Param("offset") int offset, @Param("limit") int limit);

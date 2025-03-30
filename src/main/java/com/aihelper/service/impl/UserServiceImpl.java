@@ -43,17 +43,16 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new Exception("사용자를 찾을 수 없습니다.");
         }
-        
         if (!loginRequest.getPassword().equals(user.getPassword())) {
             throw new Exception("비밀번호가 일치하지 않습니다.");
         }
-        
+
         if ("INACTIVE".equals(user.getStatus())) {
             throw new Exception("비활성화된 계정입니다.");
         }
         
         // 마지막 로그인 시간 업데이트
-        userMapper.updateLastLogin(user.getId());
+        userMapper.updateLastLogin(user.getUserId());
         
         // JWT 토큰 생성
         String token = jwtTokenUtil.generateToken(user.getUsername());
@@ -129,7 +128,7 @@ public class UserServiceImpl implements UserService {
         }
         
         userMapper.update(user);
-        return userMapper.findById(user.getId());
+        return userMapper.findById(user.getUserId());
     }
     
     @Override
