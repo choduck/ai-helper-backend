@@ -101,6 +101,11 @@ public class UserServiceImpl implements UserService {
     }
     
     @Override
+    public User findByUsername(String username) {
+        return userMapper.findByUsername(username);
+    }
+    
+    @Override
     @Transactional
     public User createUser(User user) {
         // 비밀번호 암호화

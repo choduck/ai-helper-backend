@@ -21,6 +21,9 @@ public interface UserService {
     // ID로 사용자 조회
     User getUserById(Long id);
     
+    // 사용자명으로 사용자 조회
+    User findByUsername(String username);
+    
     // 사용자 생성
     User createUser(User user);
     
